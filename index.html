@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Aritmética - Funcional</title>
+    <style>
+        /* CSS INTEGRADO */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .circles-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .circle {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: #007bff;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .main-btn {
+            background: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+        .operations-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .op-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .result-label {
+            height: 20px;
+            font-weight: bold;
+            color: #d9534f;
+            margin-bottom: 5px;
+        }
+        button:not(.main-btn) {
+            width: 100px;
+            padding: 8px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="circles-container">
+            <div id="num1" class="circle">0</div>
+            <div id="num2" class="circle">0</div>
+        </div>
+
+        <button id="btn-generate" class="main-btn">Generar Nuevo</button>
+
+        <div class="operations-grid">
+            <div class="op-group">
+                <span id="res-suma" class="result-label"></span>
+                <button onclick="realizarOperacion('suma')">Sumar</button>
+            </div>
+            <div class="op-group">
+                <span id="res-resta" class="result-label"></span>
+                <button onclick="realizarOperacion('resta')">Restar</button>
+            </div>
+            <div class="op-group">
+                <span id="res-mult" class="result-label"></span>
+                <button onclick="realizarOperacion('mult')">Multiplicar</button>
+            </div>
+            <div class="op-group">
+                <span id="res-div" class="result-label"></span>
+                <button onclick="realizarOperacion('div')">Dividir</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JAVASCRIPT INTEGRADO
+        let n1 = 0;
+        let n2 = 0;
+
+        const num1El = document.getElementById('num1');
+        const num2El = document.getElementById('num2');
+
+        function generarNumeros() {
+            // Generamos números aleatorios del 1 al 100
+            n1 = Math.floor(Math.random() * 100) + 1;
+            n2 = Math.floor(Math.random() * 100) + 1;
+            
+            // Actualizamos la pantalla
+            num1El.innerText = n1;
+            num2El.innerText = n2;
+
+            // Limpiamos los resultados anteriores
+            document.querySelectorAll('.result-label').forEach(s => s.innerText = '');
+            console.log("Nuevos números:", n1, n2);
+        }
+
+        function realizarOperacion(tipo) {
+            let resultado = 0;
+            let targetId = '';
+
+            if (tipo === 'suma') {
+                resultado = n1 + n2;
+                targetId = 'res-suma';
+            } else if (tipo === 'resta') {
+                resultado = n1 - n2;
+                targetId = 'res-resta';
+            } else if (tipo === 'mult') {
+                resultado = n1 * n2;
+                targetId = 'res-mult';
+            } else if (tipo === 'div') {
+                resultado = n2 !== 0 ? (n1 / n2).toFixed(2) : 'Error';
+                targetId = 'res-div';
+            }
+
+            document.getElementById(targetId).innerText = resultado;
+        }
+
+        // Asignar el evento al botón de generar
+        document.getElementById('btn-generate').onclick = generarNumeros;
+
+        // Ejecutar por primera vez al cargar
+        window.onload = generarNumeros;
+    </script>
+</body>
+</html>
