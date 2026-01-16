@@ -2,30 +2,38 @@
    ESTILOS DE LA CALCULADORA
    ======================================== */
 
-/* Estilos generales del body */
+:root {
+    --color-white: #ffffff;
+    --font-bold: bold;
+    --display-flex: flex;
+    --justify-center: center;
+    --align-center: center;
+    --cursor-pointer: pointer;
+    --gap-20px: 20px;
+}
 
-  body {
+body {
     font-family: 'Segoe UI', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: var(--display-flex);
+    justify-content: var(--justify-center);
+    align-items: var(--align-center);
     height: 100vh;
     margin: 0;
-    background-color: #f0f2f5;
+    background-color: #bfd5f6;
 }
 
 .container {
     text-align: center;
-    background: white;
+    background: var(--color-white);
     padding: 2rem;
     border-radius: 20px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
 .circles-container {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
+    display: var(--display-flex);
+    gap: var(--gap-20px);
+    justify-content: var(--justify-center);
     margin-bottom: 20px;
 }
 
@@ -34,40 +42,40 @@
     height: 80px;
     border-radius: 50%;
     background-color: #4A90E2;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    color: var(--color-white);
+    display: var(--display-flex);
+    align-items: var(--align-center);
+    justify-content: var(--justify-center);
     font-size: 1.5rem;
-    font-weight: bold;
+    font-weight: var(--font-bold);
 }
 
 .main-btn {
     padding: 10px 20px;
     font-size: 1rem;
-    background-color: #34495e;
-    color: white;
+    background-color: #6b42bf;
+    color: var(--color-white);
     border: none;
     border-radius: 8px;
-    cursor: pointer;
+    cursor: var(--cursor-pointer);
     margin-bottom: 30px;
 }
 
 .operations-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: var(--gap-20px);
 }
 
 .op-group {
-    display: flex;
+    display: var(--display-flex);
     flex-direction: column;
-    align-items: center;
+    align-items: var(--align-center);
 }
 
 .result-label {
     height: 20px;
-    font-weight: bold;
+    font-weight: var(--font-bold);
     color: #e67e22;
     margin-bottom: 5px;
 }
@@ -77,8 +85,8 @@ button:not(.main-btn) {
     width: 100%;
     border-radius: 5px;
     border: 1px solid #ddd;
-    background: #fff;
-    cursor: pointer;
+    background: var(--color-white);
+    cursor: var(--cursor-pointer);
     transition: 0.3s;
 }
 
