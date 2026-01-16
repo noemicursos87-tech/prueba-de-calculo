@@ -4,12 +4,17 @@
 
 :root {
     --color-white: #ffffff;
+    --color-blue: #4A90E2;
+    --color-purple: #6b42bf;
+    --color-orange: #e67e22;
     --font-bold: bold;
     --display-flex: flex;
     --justify-center: center;
     --align-center: center;
     --cursor-pointer: pointer;
     --gap-20px: 20px;
+    --size-80px: 80px;
+    --padding-10px: 10px;
 }
 
 body {
@@ -38,10 +43,10 @@ body {
 }
 
 .circle {
-    width: 80px;
-    height: 80px;
+    width: var(--size-80px);
+    height: var(--size-80px);
     border-radius: 50%;
-    background-color: #4A90E2;
+    background-color: var(--color-blue);
     color: var(--color-white);
     display: var(--display-flex);
     align-items: var(--align-center);
@@ -51,9 +56,9 @@ body {
 }
 
 .main-btn {
-    padding: 10px 20px;
+    padding: var(--padding-10px) 20px;
     font-size: 1rem;
-    background-color: #6b42bf;
+    background-color: var(--color-purple);
     color: var(--color-white);
     border: none;
     border-radius: 8px;
@@ -76,12 +81,12 @@ body {
 .result-label {
     height: 20px;
     font-weight: var(--font-bold);
-    color: #e67e22;
+    color: var(--color-orange);
     margin-bottom: 5px;
 }
 
 button:not(.main-btn) {
-    padding: 10px;
+    padding: var(--padding-10px);
     width: 100%;
     border-radius: 5px;
     border: 1px solid #ddd;
