@@ -1,0 +1,12 @@
+# App Aritmética - Funcional
+
+Aplicación web interactiva de cálculo aritmético que genera dos números aleatorios y permite realizar operaciones básicas: suma, resta, multiplicación y división.
+
+## Características
+- Generación de números aleatorios (1-100)
+- Cuatro operaciones aritméticas básicas
+- Manejo de división por cero
+- Interfaz visual con círculos para los números
+
+## Cómo usar
+Abre el archivo `index.html` en tu navegador web para comenzar a usar la aplicación.
